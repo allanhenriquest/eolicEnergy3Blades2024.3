@@ -1,5 +1,0 @@
-processor*
-*.log
-*.OpenFOAM
-*.foam
-constant/polyMesh
