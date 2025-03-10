@@ -1,0 +1,37 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2406                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      dynamicMeshDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dynamicFvMesh   dynamicMotionSolverFvMesh;
+
+motionSolverLibs (fvMotionSolvers);
+
+motionSolver    solidBody;
+
+cellZone        cylinder;
+
+solidBodyMotionFunction  rotatingMotion;
+
+origin      (0 0 0);  // Ponto de rotação
+axis        (0 1 0);  // Eixo de rotação (y)
+omega       18.85;  // rad/s
+
+// Momento de inércia da hélice (ajuste conforme necessário)
+//momentOfInertia 0.000418;
+
+// Torque resistivo (ajuste conforme necessário)
+//torqueResistive 0.05;
+
+// ************************************************************************* //
